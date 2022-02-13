@@ -6,6 +6,12 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module TaskJobSample
+  class Application < Rails::Application
+    config.active_job.queue_adapter = :sidekiq
+  end
+end
+
 module DemoMailerApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
